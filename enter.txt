@@ -1,7 +1,98 @@
-OUTPUT "are we insane?"
-INPUT ans
-IF ans = "yes" THEN
-	OUTPUT "correct"
-ELSE
-	OUTPUT "incorrect"
-ENDIF
+#include <iostream>
+
+using namespace std;
+
+double balance1;
+int main()
+{
+    cout<<"\t\t        || IE Bank ||" << endl;
+    cout<<"\t\t ============================"<<endl;
+    cout<<"\t\t ============================\n\n"<<endl;
+    
+    int proceed;
+    int pin;
+    
+    cout<<"Press 1 to proceed ";
+    cin>>proceed;
+    
+    if (proceed == 1)
+    {
+        cout<<"Welcome Juan \n";
+        for (int i = 0; i < 3; i++ )
+        { 
+            cout<<"Please enter your PIN: ";
+            cin>>pin;
+            
+            double balance = 10000; //current balance
+            balance1 = balance;
+            if (pin == 00000)
+            {
+                for(int x = 1; x < 10; x++)
+                {
+                    double withdraw, deposit, target;
+                    int choice;
+                    cout<<endl;
+                    if(x == 1)
+                    {
+                        cout<<"Choose your transaction \n\n";
+                    }
+                    cout<<"[1] Inquire Balance    [2] Withdrawal " <<endl;
+                    cout<<"[3] Deposit            [4] Withdrawal Monthly Target" <<endl;
+                    cout<<"[5] Quit" <<endl;
+                    cout<<endl;
+                    cout<<"Enter Option: ";
+                    cin>>choice;
+                    
+                    switch(choice)
+                    {
+                        case 1:
+                            cout<<"Balance Inquiry"<<endl;
+                            cout<<"Your current balance is: " <<balance1<<" "<<"pesos"<<endl;
+                            continue;
+                        case 2:
+                            cout<<"Withdrawal"<<endl;
+                            cout<<"Enter Amount: ";
+                            cin>>withdraw;
+                            balance1 = balance1 - withdraw;
+                            if (withdraw <= balance1)
+                                balance -= withdraw;
+                                else
+                                cout<<"Not enough money" <<endl;
+                            continue;
+                        case 3:
+                            cout<<"Deposit"<<endl;
+                            cout<<"Enter amount: "<<endl;
+                            cin>>deposit;
+                            balance1 = balance1 + deposit;
+                            cout<<"You deposited: "<<deposit<<" "<<"pesos"<<endl;
+                            cout<<"Your new balance is: "<<balance1<<" "<<"pesos"<<endl;
+                            continue;
+                        case 4:   
+                            cout<<"Withdrawal Monthly Target"<<endl;
+                            cout<<"Set your Withdrawal Monthly Target: "<<endl;
+                            cin>>target;
+                            cout<<"Your Withdrawal Monthly Target is: "<<target<<" "<<"pesos"<<endl;
+                            continue;
+                        case 5:
+                            cout<<"Exit"<<endl;
+                        
+                            break;
+                        default:
+                            cout<<"Invalid Option"<<endl;
+                            continue;
+                    }
+                    break;
+                }
+                break;
+            }
+            else if(i == 2)
+            {
+                cout<<"Card is captured"<<endl;
+            }
+            else
+            {
+                cout<<"Please try again"<<endl;
+            }
+        }
+    }
+}
